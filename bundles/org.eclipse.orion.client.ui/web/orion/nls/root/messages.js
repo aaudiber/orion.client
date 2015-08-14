@@ -22,6 +22,7 @@ define({//Default message bundle
 	"EditorRelatedLinkProj": "Show Project",
 	"navigationBar": "Navigation Bar",
 	"Filter bindings": "Filter bindings",
+	"BindingPrompt": "Enter the new binding",
 	"orionClientLabel": "Orion client repository",
 	"Orion Editor": "Orion Editor",
 	"Orion Image Viewer": "Orion Image Viewer",

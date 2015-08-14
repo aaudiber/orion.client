@@ -3085,6 +3085,12 @@ define("orion/editor/textView", [  //$NON-NLS-1$
 		setKeyBinding: function(keyBinding, actionID) {
 			this._keyModes[0].setKeyBinding(keyBinding, actionID);
 		},
+		overrideKeyBinding: function(actionID, newBinding, prevBinding) {
+			if (prevBinding) {
+				this.setKeyBinding(prevBinding, null);
+			}
+			this.setKeyBinding(newBinding, actionID)
+		},
 		/**
 		 * Sets the caret offset relative to the start of the document.
 		 *
