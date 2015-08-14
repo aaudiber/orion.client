@@ -546,6 +546,7 @@ textarea.parameterInput {
 .keyAssistEditButton {
 	display: block;
 	visibility: hidden;
+	font-size: 13px !important;
 	color: white !important;
 }
 
@@ -585,6 +586,7 @@ textarea.parameterInput {
 	color: #efc100;
 	text-align: right;
 	padding: 3px;
+	min-width: 150px;
 }
 
 .inputCompletionContainer {

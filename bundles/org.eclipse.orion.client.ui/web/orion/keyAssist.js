@@ -14,9 +14,10 @@ define([
 	'i18n!orion/nls/messages',
 	'orion/webui/littlelib',
 	'orion/keyBinding',
+	'orion/metrics',
 	'orion/uiUtils',
 	'orion/util'
-], function (messages, lib, keyBinding, UIUtil, util) {
+], function (messages, lib, keyBinding, metrics, UIUtil, util) {
 
 	function KeyAssistPanel(options) {
 		this.commandRegistry = options.commandRegistry;
@@ -234,6 +235,7 @@ define([
 							// remember the override
 							var newBinding = new keyBinding.KeyStroke(this._keyCode, this._ctrlDown, this._shiftDown, this._altDown, this._commandDown);
 							this.commandRegistry.createBindingOverride(row.cmdID, newBinding, row.curBinding);
+							metrics.logEvent("KeyBinding", "Changed", row.cmdID, JSON.stringify(newBinding)); //$NON-NLS-1$ //$NON-NLS-2$
 								
 							clear();
 							this._keyAssistTable.focus();
@@ -380,6 +382,8 @@ define([
 			this._keyAssistInput.value = this._filterString;
 			this._keyAssistInput.focus();
 			this._keyAssistInput.select();
+			
+			metrics.logEvent("KeyBinding", "Panel", "Opened"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		},
 		_keyDown: function (e) {
 			if (e.keyCode === 40) {
